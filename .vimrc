@@ -59,8 +59,6 @@ noremap d "_dd
 noremap x "_x
 nnoremap o o<ESC><ESC>
 nnoremap O O<ESC><ESC>
-nnoremap < gT
-nnoremap > gt
 nnoremap ( :bp<CR>
 nnoremap ) :bn<CR>
 nnoremap <C-x> :bp\|bd #<CR>
@@ -71,11 +69,6 @@ nnoremap <C-l> <C-w><C-l>
 
 highlight clear SpellBad
 highlight SpellBad cterm=underline
-
-autocmd BufNewFile,BufRead * highlight clear texItalStyle
-autocmd BufNewFile,BufRead * highlight clear texBoldStyle
-autocmd BufNewFile,BufRead * highlight Error NONE
-autocmd BufWrite * call Trim()
 
 command! -nargs=1 Search call Search(<f-args>) | normal! n
 command! -nargs=1 Indent call Indent(<f-args>)
