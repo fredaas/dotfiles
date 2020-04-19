@@ -1,8 +1,4 @@
 "
-" :[vertical] ball // Open all buffers vertically/horizontally
-"
-" :[vertical] resize // Resize windows
-"
 " :windo diffthis // Show difference between windows (:diffoff to disable)
 "
 " :set iskeyword+=:,- // Add symbols to word definition (comma separated)
@@ -39,6 +35,7 @@ set textwidth=80
 set nowrap
 set expandtab
 set autoindent
+set nojoinspaces
 
 set shiftwidth=4
 set softtabstop=4
