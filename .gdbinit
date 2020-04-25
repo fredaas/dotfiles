@@ -1,9 +1,11 @@
 #
+# NIFTY COMMANDS
+#
 # gdb -tui --args <program> <args> // Pass args to program
 #
 # x/20x $sp // Print 20 words bellow SP
 #
-# info fram // Print current stack frame info
+# info frame // Print current stack frame info
 #
 # backtrace // Show line responsible for program crash
 #

@@ -1,11 +1,25 @@
 "
-" :windo diffthis // Show difference between windows (:diffoff to disable)
+" NIFTY COMMANDS
 "
-" :set iskeyword+=:,- // Add symbols to word definition (comma separated)
+" :windo diffthis // Show diff of between windows (:diffoff to disable)
 "
-" :%bd | e# // Delete all buffers except current one
+" :diffoff // Disable diff mode
 "
-" :%!xxd // Convert binary file to hex
+" :% diffget // Replace current buffer with opposite buffer
+"
+" :set isk+=<symbols> // Add symbols to word definition (comma separated)
+"
+" :% bd | e # // Delete all buffers except current one
+"
+" :% !xxd // Convert binary file to hex
+"
+" SPELLING
+"
+" nb // Norsk bokmål
+"
+" en_us // American english
+"
+" en_gb // British english
 "
 
 set nocompatible
