@@ -1,13 +1,9 @@
 set editing-mode vi
 
 $if mode=vi
+    set keymap vi-command
+    "\C-l": clear-screen
 
-set keymap vi-command
-
-"\C-l": clear-screen
-
-set keymap vi-insert
-
-"\C-l": clear-screen 
-
+    set keymap vi-insert
+    "\C-l": clear-screen
 $endif
