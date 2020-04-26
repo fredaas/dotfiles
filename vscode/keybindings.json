@@ -1,0 +1,16 @@
+[
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.deleteLines",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.joinLines"
+    }
+]
