@@ -3,8 +3,6 @@
 "
 " :windo diffthis // Show diff of between windows (:diffoff to disable)
 "
-" :diffoff // Disable diff mode
-"
 " :% diffget // Replace current buffer with opposite buffer
 "
 " :set isk+=<symbols> // Add symbols to word definition (comma separated)
