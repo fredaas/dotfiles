@@ -14,7 +14,7 @@
     s = status -s
     lf = log --format=fuller --no-color # Log full
     ls = log --format='%h | %an | %s' --no-color # Log short
-    lt = log --format='%h | %ad | %an' --no-color --date=iso # Log time
+    lt = log --format='%h | %ad | %an | %s' --no-color --date=iso # Log time
 [user]
     email =
     name = Fredrik Ås
