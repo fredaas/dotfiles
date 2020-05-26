@@ -6,13 +6,14 @@
     "highlight_line": true,
     "hot_exit": false,
     "ignored_packages": [ "Vintage" ],
+    "mini_diff": false,
     "rulers": [ ],
     "show_errors_inline": false,
+    "show_full_path": false,
     "tab_size": 4,
     "translate_tabs_to_spaces": true,
     "trim_automatic_white_space": true,
     "trim_trailing_white_space_on_save": true,
     "use_tab_stops": true,
     "word_wrap": false,
-    "mini_diff": false
 }
