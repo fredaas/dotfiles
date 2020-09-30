@@ -33,6 +33,8 @@ let g:gruvbox_contrast_dark = 'hard'
 set wildmenu
 set path+=**
 
+set foldnestmax=1
+
 set ttyfast
 set t_Co=256
 set background=dark
