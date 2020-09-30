@@ -1,6 +1,6 @@
 {
+	"file_exclude_patterns": [ "*.o",".a",".pyc" ],
     "caret_style": "blink",
-    "file_exclude_patterns": [ ],
     "font_options": [ "no_italic", "no_bold" ],
     "font_size": 12,
     "highlight_line": true,
