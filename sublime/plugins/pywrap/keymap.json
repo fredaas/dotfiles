@@ -1,0 +1,4 @@
+[
+    { "keys": ["ctrl+shift+q"], "command": "wrap_selection" },
+    { "keys": ["ctrl+q"], "command": "wrap_block" },
+]
