@@ -11,18 +11,18 @@
 
     // Wrap text
     { "keys": ["ctrl+shift+w"], "command": "toggle_setting", "args": { "setting": "word_wrap" } },
-    { "keys": ["ctrl+shift+q"], "command": "wrap_selection" },
-    { "keys": ["ctrl+q"], "command": "wrap_block" },
+    { "keys": ["ctrl+shift+q"], "command": "wrap_selection" }, // User
+    { "keys": ["ctrl+q"], "command": "wrap_block" }, // User
 
     // Goto function
     { "keys": ["ctrl+,"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
     // Goto row
     { "keys": ["ctrl+."], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
 
-    // (User) Select current line
-    { "keys": ["ctrl+l"], "command": "select_line" },
+    // Select current line
+    { "keys": ["ctrl+l"], "command": "select_line" }, // User
 
-    // (User) Swap lines
+    // Swap lines
     { "keys": ["alt+up"], "command": "swap_line_up" },
     { "keys": ["alt+down"], "command": "swap_line_down" },
 ]
