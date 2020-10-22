@@ -1,13 +1,28 @@
 [
-    { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"} },
+    // Delete current line
+    { "keys": ["ctrl+d"], "command": "run_macro_file", "args": { "file": "Packages/Default/Delete Line.sublime-macro" } },
 
+    // Select next match
     { "keys": ["ctrl+g"], "command": "find_under_expand" },
 
-    { "keys": ["ctrl+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line.sublime-macro"} },
-    { "keys": ["ctrl+shift+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line Before.sublime-macro"} },
+    // Add new line below/above current line
+    { "keys": ["ctrl+enter"], "command": "run_macro_file", "args": { "file": "Packages/Default/Add Line.sublime-macro" } },
+    { "keys": ["ctrl+shift+enter"], "command": "run_macro_file", "args": { "file": "Packages/Default/Add Line Before.sublime-macro" } },
 
+    // Wrap text
+    { "keys": ["ctrl+shift+w"], "command": "toggle_setting", "args": { "setting": "word_wrap" } },
+    { "keys": ["ctrl+shift+q"], "command": "wrap_selection" },
+    { "keys": ["ctrl+q"], "command": "wrap_block" },
+
+    // Goto function
+    { "keys": ["ctrl+,"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+    // Goto row
+    { "keys": ["ctrl+."], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+
+    // (User) Select current line
+    { "keys": ["ctrl+l"], "command": "select_line" },
+
+    // (User) Swap lines
     { "keys": ["alt+up"], "command": "swap_line_up" },
     { "keys": ["alt+down"], "command": "swap_line_down" },
-
-    { "keys": ["ctrl+shift+w"], "command": "toggle_setting", "args": { "setting": "word_wrap" } }
 ]
