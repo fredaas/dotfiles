@@ -11,8 +11,8 @@
 
     // Wrap text
     { "keys": ["ctrl+shift+w"], "command": "toggle_setting", "args": { "setting": "word_wrap" } },
-    { "keys": ["ctrl+shift+q"], "command": "wrap_selection" }, // User
-    { "keys": ["ctrl+q"], "command": "wrap_block" }, // User
+    { "keys": ["alt+shift+q"], "command": "wrap_selection" }, // User
+    { "keys": ["alt+q"], "command": "wrap_block" }, // User
 
     // Goto function
     { "keys": ["ctrl+,"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },

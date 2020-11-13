@@ -1,0 +1,15 @@
+{
+    "globals":
+    {
+        "highlight": "#FABD2F",
+    },
+    "rules":
+    [
+        {
+            "name": "Invalids and Illegals",
+            "scope": "invalid, invalid.deprecated",
+            "foreground": "var(green)",
+            "background": "var(background)"
+        }
+    ]
+}
