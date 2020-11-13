@@ -1,6 +1,8 @@
 {
     "globals":
     {
+        "brackets_foreground": "#FABD2F",
+        "bracket_contents_foreground": "#FABD2F",
         "highlight": "#FABD2F",
     },
     "rules":
