@@ -9,7 +9,7 @@ fi
 alias print-path="tr ':' '\n' <<< $PATH"
 alias print-man="man -k . -s"
 
-export PS1="\[\e[38;5;222m\]\u@\h:\W\$(__git_ps1 '[%s]')\$\[\e[0m\] "
+export PS1="\[\e[33m\]\u@\h:\W\$(__git_ps1 '[%s]')\$\[\e[0m\] "
 
-# NB! MUST export PATH before pruning
+# NB! PATH must already be exported before executing this
 export PATH=`perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))'`
