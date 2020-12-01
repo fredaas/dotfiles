@@ -5,6 +5,8 @@
 #
 # tmux source-file .tmux.conf // Apply current config file
 #
+# tmux set default-path <path> // Set default path when creating new windows
+#
 
 set-option -g prefix C-a
 bind-key C-a send-prefix
@@ -13,13 +15,7 @@ set-option -g history-limit 50000
 
 set -g default-command /bin/bash
 set -g default-shell /bin/bash
-set -g default-terminal "screen-256color"
-
-# Colors
-set -g status-style bg=black,fg=white
-set -g pane-border-style fg=black
-set -g pane-active-border-style fg=black
-set -g window-status-current-style bg=blue
+set -g default-terminal "screen"
 
 # Terminal
 set -g base-index 1
@@ -33,15 +29,15 @@ set -g status-left "#{pane_index}"
 set -g status-right "#{session_name}"
 set -g allow-rename off
 
-set -g window-status-current-format "#{window_index}:#{window_name}"
+set -g window-status-current-format "[#{window_index}:#{window_name}]"
 set -g window-status-format "#{window_index}:#{window_name}"
 
 # Split panes
-bind-key -r C-v split-window -h -c "#{pane_current_path}"
-bind-key -r C-s split-window -v -c "#{pane_current_path}"
+bind-key -r C-v split-window -h
+bind-key -r C-s split-window -v
 
 # Open new window
-bind-key C-c new-window -c "#{pane_current_path}"
+bind-key C-c new-window
 
 # Navigate panes
 bind-key C-h select-pane -L
@@ -54,8 +50,8 @@ bind-key C-n select-window -n
 bind-key C-p select-window -p
 
 # Move windows
-bind-key , swap-window -t -1 # -d -t -1
-bind-key . swap-window -t +1 # -d -t +1
+bind-key , swap-window -t -1
+bind-key . swap-window -t +1
 
 # Even panes
 bind-key - select-layout even-vertical
