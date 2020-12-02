@@ -15,7 +15,7 @@ set-option -g history-limit 50000
 
 set -g default-command /bin/bash
 set -g default-shell /bin/bash
-set -g default-terminal "screen"
+set -g default-terminal "screen-256color"
 
 # Terminal
 set -g base-index 1
