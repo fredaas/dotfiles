@@ -1,8 +1,10 @@
 {
-	"file_exclude_patterns": [ "*.o",".a",".pyc" ],
+	"draw_indent_guides": false,
     "caret_style": "blink",
+    "file_exclude_patterns": [ "*.o",".a",".pyc" ],
     "font_options": [ "no_italic", "no_bold" ],
     "font_size": 12,
+    "gutter": false,
     "highlight_line": true,
     "hot_exit": false,
     "ignored_packages": [ "Vintage" ],
@@ -17,5 +19,4 @@
     "use_tab_stops": true,
     "word_wrap": false,
     "wrap_width": 80,
-    "gutter": false,
 }
