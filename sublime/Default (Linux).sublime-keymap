@@ -16,8 +16,12 @@
 
     // Goto function
     { "keys": ["ctrl+,"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+
     // Goto row
     { "keys": ["ctrl+."], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+
+    // Capitalize first letter
+    { "keys": ["ctrl+k", "ctrl+t"], "command": "title_case" },
 
     // Select current line
     { "keys": ["ctrl+l"], "command": "select_line" }, // User
