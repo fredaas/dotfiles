@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+\begin{${1}}
+${2}
+\end{${1}}
+]]></content>
+    <tabTrigger>beg</tabTrigger>
+    <!-- <scope>source.tex</scope> -->
+</snippet>
