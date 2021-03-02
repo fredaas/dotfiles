@@ -5,6 +5,54 @@ import sublime_plugin
 from Default.paragraph import expand_to_paragraph
 
 
+#------------------------------------------------------------------------------
+#
+# Plugin
+#
+#------------------------------------------------------------------------------
+
+
+#
+# Returns the valid prefix of 's'
+#
+def match_token(s):
+    s = s.lstrip()
+    l = len(s)
+    for i in range(l):
+        # Only check the first two characters
+        if i >= 2:
+            break
+        c = s[i]
+        if c == "-":
+            return c
+        if c == "*":
+            return c
+        if c == ">":
+            if i + 1 < l and c == s[i + 1]:
+                return ">>"
+            return c
+        if c == "#":
+            return c
+        if c == "/":
+            if i + 1 < l and c == s[i + 1]:
+                return "//"
+        if c == "~":
+            return c
+    return ""
+
+
+#
+# Escapes 't'
+#
+def escape(t):
+    if t == "*":
+        return "\*"
+    return t
+
+
+#
+# Returns the number of leading spaces in 's'
+#
 def lspace(s):
     i = 0
     while i < len(s) and s[i] == " ":
@@ -12,68 +60,53 @@ def lspace(s):
     return i
 
 
+#
+# Wraps 'stream' at 'cutoff' (including)
+#
 def wrap_stream(stream, indent=None, newlines=0, cutoff=80):
     if not indent:
         indent = lspace(stream)
 
+    prefix = match_token(stream)
+    prefix_indent = indent
+
     stream = re.sub('(\n)+', ' ', stream)
     stream = re.sub('( )+', ' ', stream)
+    stream = re.sub('({})'.format(escape(prefix)), '', stream, 1)
     stream = stream.strip()
 
-    if len(stream) + indent <= cutoff:
-        return " " * indent + stream + "\n" + "\n" * newlines
+    if (len(prefix) > 0):
+        prefix_indent += len(prefix) + 1
+        prefix += " "
 
+    if len(stream) + prefix_indent < cutoff:
+        return " " * indent + prefix + stream + "\n"
+
+    leader = 1
     block = ""
     line = ""
-    linelen = indent
+    linelen = 0
     for word in stream.split():
-        if linelen + len(word) > cutoff:
-            block += " " * indent + line.rstrip() + "\n"
+        if linelen + prefix_indent + len(word) >= cutoff:
+            if not leader:
+                block += " " * prefix_indent + line.rstrip() + "\n"
+            else:
+                leader = 0
+                block += " " * indent + prefix + line.rstrip() + "\n"
             line = ""
-            linelen = indent
+            linelen = 0
         line += word + " "
         linelen += len(word) + 1
-    block += " " * indent + line.rstrip() + "\n"
+    block += " " * prefix_indent + line.rstrip()
 
-    return block + "\n" * newlines
+    return block + "\n"
 
 
-def create_blocks(stream):
-    stream = [ x.rstrip() for x in stream.split("\n") ]
-
-    numlines = len(stream)
-
-    blocks = []
-    blockline = ""
-    block_indent = 0
-    newlines = 0
-
-    i = 0
-    while i < numlines:
-        line = stream[i]
-        if line == "":
-            block_newlines = 0
-            while i < numlines and stream[i] == "":
-                block_newlines += 1
-                i += 1
-            if blockline != "":
-                blockline = re.sub('( )+', ' ', blockline.lstrip())
-                blocks.append((blockline, block_indent, block_newlines))
-                blockline = ""
-            else:
-                newlines = block_newlines
-            if i == numlines:
-                break
-            line = stream[i]
-        if blockline == "":
-            block_indent = lspace(line)
-        blockline += line + " "
-        i += 1
-
-    if blockline != "":
-        blocks.append((blockline, block_indent, 0))
-
-    return newlines, blocks
+#------------------------------------------------------------------------------
+#
+# Sublime
+#
+#------------------------------------------------------------------------------
 
 
 def get_wrap_width(view):
@@ -91,16 +124,3 @@ class WrapBlock(sublime_plugin.TextCommand):
         region = expand_to_paragraph(view, region.begin())
         string = wrap_stream(view.substr(region), cutoff=wrap_width)
         view.replace(edit, sublime.Region(region.begin(), region.end()), string)
-
-
-class WrapSelection(sublime_plugin.TextCommand):
-    def run(self, edit):
-        view = self.view
-        wrap_width = get_wrap_width(view)
-        region = view.sel()[0]
-        if not region.empty():
-            newlines, blocks = create_blocks(self.view.substr(region))
-            string = "\n" * newlines
-            for block in blocks:
-                string += wrap_stream(*block, cutoff=wrap_width)
-            self.view.replace(edit, region, string)
