@@ -7,5 +7,5 @@
 %------------------------------------------------------------------------------
 ]]></content>
     <tabTrigger>title</tabTrigger>
-    <scope>text.tex.latex</scope>
+    <scope>text.tex,text.bibtex</scope>
 </snippet>
