@@ -1,4 +1,5 @@
 import re
+import os
 import sublime
 import sublime_plugin
 
@@ -107,6 +108,15 @@ def wrap_stream(stream, indent=None, newlines=0, cutoff=80):
 # Sublime
 #
 #------------------------------------------------------------------------------
+
+
+def get_file_ext(view):
+    filepath = view.file_name()
+    if filepath != None:
+        ext = os.path.splitext(view.file_name())[1]
+        if len(ext) != 0:
+            return ext
+    return None
 
 
 def get_wrap_width(view):
