@@ -41,7 +41,6 @@ def match_token(s):
             return c
     return ""
 
-
 #
 # Escapes 't'
 #
@@ -49,7 +48,6 @@ def escape(t):
     if t == "*":
         return "\*"
     return t
-
 
 #
 # Returns the number of leading spaces in 's'
@@ -59,7 +57,6 @@ def lspace(s):
     while i < len(s) and s[i] == " ":
         i += 1
     return i
-
 
 #
 # Wraps 'stream' at 'cutoff' (including)
@@ -118,13 +115,11 @@ def get_file_ext(view):
             return ext
     return None
 
-
 def get_wrap_width(view):
     wrap_width = view.settings().get("wrap_width")
     if not wrap_width or wrap_width < 10:
         return 80
     return wrap_width
-
 
 class WrapBlock(sublime_plugin.TextCommand):
     def run(self, edit):
