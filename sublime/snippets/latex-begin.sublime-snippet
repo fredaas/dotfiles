@@ -5,5 +5,5 @@ ${2}
 \end{${1}}
 ]]></content>
     <tabTrigger>beg</tabTrigger>
-    <!-- <scope>source.tex</scope> -->
+    <scope>text.tex.latex</scope>
 </snippet>
