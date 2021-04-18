@@ -6,6 +6,7 @@ fi
 
 [[ `type -t ls` == "alias" ]] && unalias ls
 
+# 4-bit color scheme
 export PS1="\[\e[94m\]\u@\h:\W\$(__git_ps1 '[%s]')$\[\e[0m\] "
 
 # NB! PATH must already be exported before executing this
