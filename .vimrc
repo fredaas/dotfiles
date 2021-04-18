@@ -30,6 +30,9 @@ let g:gruvbox_contrast_dark = 'hard'
 let g:netrw_banner = 0
 let g:netrw_liststyle = 0
 
+filetype plugin on
+syntax on
+
 set wildmenu
 set path+=**
 
